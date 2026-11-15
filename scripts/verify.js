@@ -46,6 +46,7 @@ function checkRouteFile(routePath) {
 // 1. Ana Sayfa ve Kurumsal Sayfalar
 checkRouteFile('');
 checkRouteFile('sektorler');
+checkRouteFile('referanslar');
 checkRouteFile('hakkimizda');
 checkRouteFile('iletisim');
 

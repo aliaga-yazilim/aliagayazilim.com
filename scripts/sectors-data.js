@@ -421,8 +421,8 @@ export const SECTORS = [
     keywords: ['temizlik şirketi web sitesi', 'temizlik firması web tasarım', 'aliağa temizlik şirketleri seo', 'kurumsal temizlik dijital pazarlama']
   },
   {
-    slug: 'catring',
-    rawName: 'catring',
+    slug: 'catering',
+    rawName: 'catering',
     shortTitle: 'Catering & Toplu Yemek',
     title: 'Catering, Taşıma Yemek, Fabrika Tabldot ve Organizasyon Yemek Hizmetleri',
     category: 'Yeme & İçme',
@@ -433,7 +433,7 @@ export const SECTORS = [
     ecommerceFeatures: ['Düğün, Mevlüt, Toplantı ve Davetler İçin Online Paket Yemek Siparişi', 'Ofisler İçin Haftalık/Aylık Abonelikli Paket Öğle Yemeği Satışı', 'Kurumsal Cari Ödeme ve Online Kredi Kartı Tahsilat Sistemi', 'Soğuk Sandviç, Kumanya ve İkramlık Kutusu (Coffee Break) Mağazası'],
     gbpFeatures: ['Aliağa OSB ve Sanayi Çevresinde "Catering / Toplu Yemek" Harita Liderliği', 'Endüstriyel Mutfak, Benmari Sevkiyat Araçları ve Sunum Fotoğrafları', 'Kurumsal Fabrika ve Organizasyon Referans Yorumları', 'Gıda Güvenliği ve Kurumsal İtibar Yönetimi'],
     socialFeatures: ['Dev Kazanlarda Hijyenik Üretim ve Sevkiyat Hazırlığı Reels Videoları', 'Fabrika İK ve Satın Alma Yöneticilerine Yönelik LinkedIn/Meta Reklamları', 'Kurumsal Açılış, Kokteyl ve Organizasyon Sunum Galerileri', 'Gıda Mühendisi Kontrolünde Dengeli Beslenme Vurgulu İçerikler'],
-    keywords: ['catring web sitesi', 'catering firması web tasarım', 'aliağa toplu yemek firmaları seo', 'tabldot yemek şirketi web sitesi']
+    keywords: ['catering web sitesi', 'catering firması web tasarım', 'aliağa toplu yemek firmaları seo', 'tabldot yemek şirketi web sitesi']
   },
   {
     slug: 'isg',

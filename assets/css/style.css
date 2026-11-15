@@ -1260,6 +1260,142 @@ h1, h2, h3, h4, h5, h6 {
   gap: 0.6rem;
 }
 
+/* Referanslarımız (Proje Vitrin Kartları) */
+.references-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.reference-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.reference-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--aliaga-blue);
+}
+
+.reference-browser-bar {
+  background: var(--aliaga-charcoal);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.browser-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.browser-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.browser-dots span:nth-child(1) { background: var(--aliaga-magenta); }
+.browser-dots span:nth-child(2) { background: var(--aliaga-blue); }
+.browser-dots span:nth-child(3) { background: var(--aliaga-green); }
+
+.browser-url {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.22rem 0.75rem;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.01em;
+}
+
+.reference-visual {
+  padding: 1.65rem 1.5rem;
+  background: linear-gradient(135deg, var(--bg-soft) 0%, #FFFFFF 100%);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.reference-sector-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
+}
+
+.reference-card:nth-child(3n+1) .reference-sector-badge {
+  background: var(--aliaga-magenta-soft);
+  color: var(--aliaga-magenta);
+}
+
+.reference-card:nth-child(3n+2) .reference-sector-badge {
+  background: var(--aliaga-blue-soft);
+  color: var(--aliaga-blue);
+}
+
+.reference-card:nth-child(3n+3) .reference-sector-badge {
+  background: var(--aliaga-green-soft);
+  color: var(--aliaga-green-hover);
+}
+
+.reference-domain-title {
+  font-size: 1.32rem;
+  font-weight: 900;
+  color: var(--aliaga-charcoal);
+  margin-bottom: 0.35rem;
+}
+
+.reference-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.reference-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.reference-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-color);
+  color: var(--text-body);
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+}
+
+.reference-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  flex-wrap: wrap;
+}
+
 /* Responsive (Mobil & Tablet Pixel-Perfect Uyum) */
 @media (max-width: 1024px) {
   .hero-grid,
@@ -1268,7 +1404,8 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .cards-grid-3,
-  .sectors-directory-grid {
+  .sectors-directory-grid,
+  .references-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1344,6 +1481,7 @@ h1, h2, h3, h4, h5, h6 {
   .cards-grid-3,
   .cards-grid-2,
   .sectors-directory-grid,
+  .references-grid,
   .process-grid,
   .sector-services-bar,
   .footer-grid {

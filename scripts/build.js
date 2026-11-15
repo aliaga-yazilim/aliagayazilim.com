@@ -223,6 +223,76 @@ function renderHead({
 </head>`;
 }
 
+// Referanslarımız (Tamamlanan ve Devam Eden Başarı Hikayeleri)
+export const REFERENCES = [
+  {
+    domain: 'aliagakombibakim.com',
+    url: 'https://aliagakombibakim.com',
+    title: 'Aliağa Kombi Bakım Servisi',
+    sectorLabel: 'Kombi Bakım Servisi',
+    relatedRoute: 'kombi-bakim-web-sitesi',
+    summary: 'Aliağa ve çevresinde kombi bakımı, petek temizliği ve 7/24 acil teknik servis hizmeti sunan işletme için yerel SEO (Google Harita) odaklı, mobil hızlı arama ve randevu dönüşümlü kurumsal web projesi.',
+    tags: ['Kurumsal Web Tasarım', 'Yerel SEO & Harita', '100/100 Core Web Vitals', 'Mobil Acil Çağrı Modülü']
+  },
+  {
+    domain: 'asmakinaotomasyon.com',
+    url: 'https://asmakinaotomasyon.com',
+    title: 'AS Makina Otomasyon',
+    sectorLabel: 'Makina Otomasyon Yazılım Çözümleri',
+    relatedRoute: 'yapay-zeka-destekli-otomasyon-hizmetleri',
+    summary: 'Endüstriyel makina, PLC/SCADA ve fabrika otomasyon yazılım çözümleri sunan mühendislik firması için B2B kurumsal kimlik, teknik katalog, proje portfolyosu ve hızlı teklif altyapısı.',
+    tags: ['Endüstriyel Web Sitesi', 'Makina & Otomasyon', 'B2B Teklif Altyapısı', 'Kurumsal SEO']
+  },
+  {
+    domain: 'gursemabeauty.com',
+    url: 'https://gursemabeauty.com',
+    title: 'Gürsema Beauty Center',
+    sectorLabel: 'Güzellik ve Bakım Merkezi',
+    relatedRoute: 'guzellik-salonlari-web-sitesi',
+    summary: 'Cilt bakımı, lazer epilasyon ve bölgesel incelme uygulamaları sunan güzellik ve bakım merkezi için estetik UI/UX arayüz, uygulama tanıtım sayfaları ve online randevu dönüşüm sistemi.',
+    tags: ['Güzellik Merkezi UI/UX', 'Online Randevu & İletişim', 'Sosyal Medya Entegrasyonu', 'Mobil Öncelikli Tasarım']
+  }
+];
+
+function renderReferencesCards(routePath) {
+  const rootPrefix = getRootPrefix(routePath);
+  return `
+  <div class="references-grid">
+    ${REFERENCES.map(
+      (ref) => `
+      <article class="reference-card">
+        <div class="reference-browser-bar">
+          <div class="browser-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span class="browser-url">${ref.domain}</span>
+        </div>
+        <div class="reference-visual">
+          <span class="reference-sector-badge">✓ ${ref.sectorLabel}</span>
+          <h3 class="reference-domain-title">
+            <a href="${ref.url}" target="_blank" rel="noopener noreferrer" style="color:inherit;">${ref.title}</a>
+          </h3>
+          <span style="font-size:0.84rem; font-weight:700; color:var(--aliaga-blue);">${ref.domain} ↗</span>
+        </div>
+        <div class="reference-body">
+          <div>
+            <p style="font-size:0.93rem; color:var(--text-body);">${ref.summary}</p>
+            <div class="reference-tags">
+              ${ref.tags.map((t) => `<span class="reference-tag">${t}</span>`).join('')}
+            </div>
+          </div>
+          <div class="reference-actions">
+            <a href="${ref.url}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+              Siteyi Ziyaret Et ↗
+            </a>
+            <a href="${pageHref(rootPrefix, ref.relatedRoute)}" class="feature-card-link">
+              Sektör Paketini İncele →
+            </a>
+          </div>
+        </div>
+      </article>`
+    ).join('')}
+  </div>`;
+}
+
 // Ortak Header & Navigasyon
 function renderHeader(routePath) {
   const rootPrefix = getRootPrefix(routePath);
@@ -284,6 +354,7 @@ function renderHeader(routePath) {
         </div>
 
         <a href="${pageHref(rootPrefix, 'sektorler')}" class="nav-link">Sektörler (53+)</a>
+        <a href="${pageHref(rootPrefix, 'referanslar')}" class="nav-link">Referanslarımız</a>
         <a href="${pageHref(rootPrefix, 'hakkimizda')}" class="nav-link">Hakkımızda</a>
         <a href="${pageHref(rootPrefix, 'iletisim')}" class="nav-link">İletişim</a>
       </nav>
@@ -447,6 +518,7 @@ function renderFooter(routePath, contextTitle = 'Ücretsiz Dijital Danışmanlı
             <li><a href="${pageHref(rootPrefix, 'yapay-zeka-destekli-musteri-temsilcisi')}">AI Müşteri Temsilcisi (7/24 Bot)</a></li>
             <li><a href="${pageHref(rootPrefix, 'kurumsal-yapay-zeka-donusum-hizmetleri')}">Kurumsal Yapay Zeka Dönüşümü</a></li>
             <li><a href="${pageHref(rootPrefix, 'sektorler')}">Tüm Sektörel Çözümler (53+)</a></li>
+            <li><a href="${pageHref(rootPrefix, 'referanslar')}">Referanslarımız</a></li>
             <li><a href="${pageHref(rootPrefix, 'hakkimizda')}">Hakkımızda</a></li>
             <li><a href="${pageHref(rootPrefix, 'iletisim')}">İletişim &amp; Destek Talebi</a></li>
           </ul>
@@ -604,8 +676,8 @@ function buildHomePage() {
             <a href="mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Ücretsiz Dijital Danışmanlık Talebi - aliagayazilim.com')}" class="btn btn-primary btn-lg">
               ${renderIcon('mail', 20)} Ücretsiz Danışmanlık Alın
             </a>
-            <a href="#sektorler-fihristi" class="btn btn-outline btn-lg">
-              53 Sektörel Çözümü İncele
+            <a href="#referanslarimiz" class="btn btn-outline btn-lg">
+              Referanslarımızı İncele
             </a>
           </div>
           <div class="hero-trust-strip">
@@ -682,6 +754,28 @@ function buildHomePage() {
               </a>
             </article>`
           ).join('')}
+        </div>
+      </div>
+    </section>
+
+    <!-- Referanslarımız Bölümü -->
+    <section class="section section-soft" id="referanslarimiz">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Mutlu Müşteriler &amp; Canlı Projeler</span>
+          <h2 class="section-title">Referanslarımız ve Başarı Hikayelerimiz</h2>
+          <p class="section-desc">Farklı sektörlerde dijital dönüşümünü, kurumsal web tasarımını, SEO ve otomasyon altyapısını başarıyla hayata geçirdiğimiz seçkin referans projelerimiz:</p>
+        </div>
+
+        ${renderReferencesCards(routePath)}
+
+        <div style="text-align:center; margin-top:2.25rem; display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+          <a href="${pageHref(rootPrefix, 'referanslar')}" class="btn btn-secondary">
+            Tüm Referans Detaylarını Gör →
+          </a>
+          <a href="mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Referanslarınız Gibi Yeni Proje Talebi (Ücretsiz Danışmanlık)')}" class="btn btn-primary">
+            ${renderIcon('mail', 18)} İşletmeniz İçin Ücretsiz Danışmanlık Alın
+          </a>
         </div>
       </div>
     </section>
@@ -1414,9 +1508,62 @@ function buildSectorsIndexPage() {
   return writePage(routePath, html);
 }
 
-// 6. HAKKIMIZDA VE İLETİŞİM SAYFALARI
+// 6. REFERANSLAR, HAKKIMIZDA VE İLETİŞİM SAYFALARI
 function buildAboutAndContactPages() {
   const urls = [];
+
+  // Referanslarımız Sayfası (/referanslar)
+  const refRoute = 'referanslar';
+  const refBreadcrumbs = [
+    { label: 'Ana Sayfa', route: '' },
+    { label: 'Referanslarımız', route: refRoute }
+  ];
+  const refHtml = `${renderHead({
+    routePath: refRoute,
+    title: 'Referanslarımız & Tamamlanan Projeler | Aliağa Yazılım',
+    description: 'Aliağa Yazılım referansları: aliagakombibakim.com (Kombi Bakım Servisi), asmakinaotomasyon.com (Makina Otomasyon Yazılım Çözümleri), gursemabeauty.com (Güzellik ve Bakım Merkezi) ve kurumsal projelerimiz.',
+    keywords: ['aliağa yazılım referanslar', 'aliagakombibakim.com', 'asmakinaotomasyon.com', 'gursemabeauty.com', 'aliağa web tasarım referansları'],
+    breadcrumbs: refBreadcrumbs
+  })}
+<body>
+  ${renderHeader(refRoute)}
+  ${renderBreadcrumbBar(refRoute, refBreadcrumbs)}
+
+  <main id="main-content">
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-badge-row">
+            <span class="hero-badge-dot">BAŞARI HİKAYELERİMİZ</span>
+            <span class="hero-badge-text">Web Tasarım • SEO • Otomasyon • Dijital Dönüşüm</span>
+          </div>
+          <h1 class="hero-title">Gerçek Sonuçlar Üreten <span class="highlight-magenta">Seçkin Referanslarımız</span></h1>
+          <p class="hero-subtitle">Aliağa, İzmir ve Türkiye genelinde farklı sektörlerden işletmelerin dijital vitrinlerini, arama motoru (SEO) görünürlüklerini ve otomasyon altyapılarını başarıyla inşa ediyoruz.</p>
+          <div class="hero-cta-group">
+            <a href="mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Referanslarınız Gibi Yeni Proje Talebi (Ücretsiz Danışmanlık)')}" class="btn btn-primary btn-lg">
+              ${renderIcon('mail', 18)} Sizin Projeniz İçin Ücretsiz Danışmanlık Alın
+            </a>
+          </div>
+        </div>
+        ${renderConsultationCard({ cardTitle: 'Sıradaki Başarı Hikayemiz Siz Olun' })}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Canlı Projelerimiz</span>
+          <h2 class="section-title">Referans Projelerimiz</h2>
+          <p class="section-desc">Her biri Core Web Vitals, mobil uyumluluk ve sektörel dönüşüm kriterlerine göre özel olarak geliştirilen referanslarımız:</p>
+        </div>
+        ${renderReferencesCards(refRoute)}
+      </div>
+    </section>
+  </main>
+
+  ${renderFooter(refRoute, 'Referanslar Sayfası Proje Talebi')}
+`;
+  urls.push(writePage(refRoute, refHtml));
 
   // Hakkımızda
   const aboutRoute = 'hakkimizda';
@@ -1457,6 +1604,17 @@ function buildAboutAndContactPages() {
           </div>
         </div>
         ${renderConsultationCard({ cardTitle: 'Ekibimizle Tanışın & Ücretsiz Danışmanlık Alın' })}
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Güven &amp; Kalite</span>
+          <h2 class="section-title">Referanslarımız</h2>
+          <p class="section-desc">Birlikte değer ürettiğimiz iş ortaklarımız ve tamamladığımız projeler:</p>
+        </div>
+        ${renderReferencesCards(aboutRoute)}
       </div>
     </section>
   </main>
