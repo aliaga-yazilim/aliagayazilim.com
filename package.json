@@ -1,0 +1,10 @@
+{
+  "name": "aliagayazilim-com-static",
+  "version": "1.0.0",
+  "description": "Aliağa Yazılım (aliagayazilim.com) %100 SEO ve Core Web Vitals Uyumlu Statik Web Sitesi",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "verify": "node scripts/verify.js"
+  }
+}

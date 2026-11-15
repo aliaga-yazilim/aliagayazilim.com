@@ -1,0 +1,21 @@
+{
+  "name": "Aliağa Yazılım | Web Tasarım, SEO, E-Ticaret & Yapay Zeka",
+  "short_name": "Aliağa Yazılım",
+  "description": "Web Tasarım, Web Sitesi, SEO Hizmetleri, Google Business, Kurumsal Mail, E-Ticaret, Mobil Uygulama, Yapay Zeka ve Otomasyon Çözümleri.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#DC1E62",
+  "icons": [
+    {
+      "src": "/assets/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/img/aliaga-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
